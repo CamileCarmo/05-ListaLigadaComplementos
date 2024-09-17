@@ -69,7 +69,7 @@ void menu()
 
 void inicializar()
 {
-	// se a lista j� possuir elementos
+	// se a lista j� possuir elementos
 // libera a memoria ocupada
 	NO* aux = primeiro;
 	while (aux != NULL) {
@@ -126,16 +126,15 @@ void inserirElemento()
 
 	if (primeiro == NULL)
 	{
+		// Se a lista está vazia, tanto o primeiro quanto o último apontam para o novo elemento
 		primeiro = novo;
+		ultimo = novo;
 	}
 	else
 	{
-		// procura o final da lista
-		NO* aux = primeiro;
-		while (aux->prox != NULL) {
-			aux = aux->prox;
-		}
-		aux->prox = novo;
+		// Se a lista já contém elementos, insere o novo no final diretamente usando 'ultimo'
+		ultimo->prox = novo;
+		ultimo = novo; // Atualiza o ponteiro 'ultimo' para o novo elemento
 	}
 }
 
